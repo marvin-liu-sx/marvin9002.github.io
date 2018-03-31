@@ -17,18 +17,18 @@
   
   
   <title>MySql 读锁与写锁 | 柳英伟博客</title>
-  <meta name="description" content="MySql 读锁与写锁一、MySQL锁：（读写锁） 类型：  读锁（共享锁，相互不阻塞）、  写锁（排他锁，会阻塞其他的读锁和写锁）|写锁的优先级高于读锁 锁粒度： 表锁：基本的锁策略，开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高,并发度最低。 行锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低,并发度也最高。    二、事务（ACID） 原子性：  一个事务必">
+  <meta name="description" content="读锁（共享锁，相互不阻塞）、写锁（排他锁，会阻塞其他的读锁和写锁）|写锁的优先级高于读锁">
 <meta name="keywords" content="mysql,数据库,读锁,写锁,排他锁,共享锁">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql 读锁与写锁">
 <meta property="og:url" content="http://marvin9002.github.com/2018/04/01/MySql-读锁与写锁/index.html">
 <meta property="og:site_name" content="柳英伟博客">
-<meta property="og:description" content="MySql 读锁与写锁一、MySQL锁：（读写锁） 类型：  读锁（共享锁，相互不阻塞）、  写锁（排他锁，会阻塞其他的读锁和写锁）|写锁的优先级高于读锁 锁粒度： 表锁：基本的锁策略，开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高,并发度最低。 行锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低,并发度也最高。    二、事务（ACID） 原子性：  一个事务必">
+<meta property="og:description" content="读锁（共享锁，相互不阻塞）、写锁（排他锁，会阻塞其他的读锁和写锁）|写锁的优先级高于读锁">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-31T16:26:54.962Z">
+<meta property="og:updated_time" content="2018-03-31T16:31:30.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql 读锁与写锁">
-<meta name="twitter:description" content="MySql 读锁与写锁一、MySQL锁：（读写锁） 类型：  读锁（共享锁，相互不阻塞）、  写锁（排他锁，会阻塞其他的读锁和写锁）|写锁的优先级高于读锁 锁粒度： 表锁：基本的锁策略，开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高,并发度最低。 行锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低,并发度也最高。    二、事务（ACID） 原子性：  一个事务必">
+<meta name="twitter:description" content="读锁（共享锁，相互不阻塞）、写锁（排他锁，会阻塞其他的读锁和写锁）|写锁的优先级高于读锁">
   <!-- Canonical links -->
   <link rel="canonical" href="http://marvin9002.github.com/2018/04/01/MySql-读锁与写锁/index.html">
   
@@ -149,17 +149,6 @@
             <i class="icon icon-project"></i>
             
             <span class="menu-title">项目</span>
-          </a>
-        </li>
-        
-        
-        
-        <li class="menu-item menu-item-books">
-          <a href="/books">
-            
-            <i class="icon icon-book-fill"></i>
-            
-            <span class="menu-title">书单</span>
           </a>
         </li>
         
@@ -376,7 +365,9 @@
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h1 id="MySql-读锁与写锁"><a href="#MySql-读锁与写锁" class="headerlink" title="MySql 读锁与写锁"></a>MySql 读锁与写锁</h1><h3 id="一、MySQL锁：（读写锁）"><a href="#一、MySQL锁：（读写锁）" class="headerlink" title="一、MySQL锁：（读写锁）"></a>一、MySQL锁：（读写锁）</h3><ul>
+        <p>读锁（共享锁，相互不阻塞）、<br>写锁（排他锁，会阻塞其他的读锁和写锁）|写锁的优先级高于读锁</p>
+<a id="more"></a>
+<h1 id="MySql-读锁与写锁"><a href="#MySql-读锁与写锁" class="headerlink" title="MySql 读锁与写锁"></a>MySql 读锁与写锁</h1><h3 id="一、MySQL锁：（读写锁）"><a href="#一、MySQL锁：（读写锁）" class="headerlink" title="一、MySQL锁：（读写锁）"></a>一、MySQL锁：（读写锁）</h3><ul>
 <li>类型：<br>  读锁（共享锁，相互不阻塞）、<br>  写锁（排他锁，会阻塞其他的读锁和写锁）|写锁的优先级高于读锁</li>
 <li>锁粒度：<ol>
 <li>表锁：基本的锁策略，开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高,并发度最低。</li>
