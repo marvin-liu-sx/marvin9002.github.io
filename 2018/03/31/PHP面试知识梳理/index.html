@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="柳英伟博客">
 <meta property="og:description" content="周末之前把这个知识梳理整理完，感谢各位的点赞、收藏和关注，大家一起努力。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-03-31T11:02:06.262Z">
+<meta property="og:updated_time" content="2018-03-31T11:21:24.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP面试知识梳理">
 <meta name="twitter:description" content="周末之前把这个知识梳理整理完，感谢各位的点赞、收藏和关注，大家一起努力。">
@@ -199,9 +199,7 @@
       
         <p>昨天在思否上发了这篇整理，晚上10点多看到了很多赞收藏和关注，其实挺愧疚的，<br>因为最近在找工作这篇文章并没有整理完。<br>看到这个还挺受欢迎的，也因为新工作基本定下来了，<br>现在的公司正常交接中，打算下周末之前把这个知识梳理整理完，<br>感谢各位的点赞、收藏和关注，大家一起努力。</p>
 <a id="more"></a>
-<p>#算法与数据结构</p>
-<p>###BTree和B+tree</p>
-<ul>
+<h1 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h1><h3 id="BTree和B-tree"><a href="#BTree和B-tree" class="headerlink" title="BTree和B+tree"></a>BTree和B+tree</h3><ul>
 <li><p>BTree</p>
 <p>  B树是为了磁盘或者其他存储设备而设计的一种多叉平衡查找树，相对于二叉树，B树的每个内节点有多个分支，即多叉。<br>  参考文章：<a href="https://www.jianshu.com/p/da59af78ec59" target="_blank" rel="noopener">https://www.jianshu.com/p/da59af78ec59</a></p>
 </li>
@@ -209,8 +207,7 @@
 <p>  B+树是B树的变体，也是一种多路搜索树。<br>  参考文章：<a href="https://www.jianshu.com/p/da59af78ec59" target="_blank" rel="noopener">https://www.jianshu.com/p/da59af78ec59</a></p>
 </li>
 </ul>
-<p>###排序算法</p>
-<ul>
+<h3 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h3><ul>
 <li><p>快速排序</p>
 <p>  快速排序是十分常用的高效率的算法，其思想是：先选一个标尺，用它把整个队列过一遍筛选，以保证其左边的元素都不大于它，其右边的元素都不小与它</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">function quickSort($arr)&#123;</span><br><span class="line"></span><br><span class="line">  // 获取数组长度</span><br><span class="line">  $length = count($arr);</span><br><span class="line"></span><br><span class="line">  // 判断长度是否需要继续二分比较</span><br><span class="line">  if($length &lt;= 1)&#123;</span><br><span class="line">    return $arr;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 定义基准元素</span><br><span class="line">  $base = $arr[0];</span><br><span class="line"></span><br><span class="line">  // 定义两个空数组，用于存放和基准元素的比较后的结果</span><br><span class="line">  $left = [];</span><br><span class="line">  $right = [];</span><br><span class="line"></span><br><span class="line">  // 遍历数组</span><br><span class="line">  for ($i=1; $i &lt; $length; $i++) &#123; </span><br><span class="line"></span><br><span class="line">    // 和基准元素作比较</span><br><span class="line">    if ($arr[$i] &gt; $base) &#123;</span><br><span class="line">      $right[] = $arr[$i];</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">      $left[] = $arr[$i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 然后递归分别处理left和right</span><br><span class="line">  $left = quickSort($left);</span><br><span class="line">  $right = quickSort($right);</span><br><span class="line"></span><br><span class="line">  // 合并</span><br><span class="line">  return array_merge($left,[$base],$right);</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -438,6 +435,16 @@
   
 
   
+  <div id="SOHUCS" sid="PHP面试知识梳理" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytxCEhm0",
+        conf: "prod_5b7768b6bc8f3a08fd463309e43f3c5a&#39;"
+    });
+</script>
+</script>
+  
 
   
 
@@ -559,22 +566,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSV</a>
               </li>
              
@@ -588,6 +579,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">火车票</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>
@@ -670,7 +677,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">about</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">伟大是熬出来的&lt;/br&gt;编程是逼出来的</div>
   	  	
     	</section>
     
