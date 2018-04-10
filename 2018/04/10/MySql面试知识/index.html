@@ -24,11 +24,11 @@
 <meta property="og:site_name" content="柳英伟博客">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/c23957e9-a572-44f8-be15-f306c8b92722.jpg">
-<meta property="og:image" content="http://marvin9002.github.com/2018/04/10/pics//e800b001-7779-495b-8459-d33a7440d7b8.jpg">
-<meta property="og:image" content="http://marvin9002.github.com/2018/04/10/pics//5ed71283-a070-4b21-85ae-f2cbfd6ba6e1.jpg">
-<meta property="og:image" content="http://marvin9002.github.com/2018/04/10/pics//63cd5b50-d6d8-4df6-8912-ef4a1dd5ba13.jpg">
-<meta property="og:image" content="http://marvin9002.github.com/2018/04/10/pics//1ee5f0a5-b8df-43b9-95ab-c516c54ec797.jpg">
-<meta property="og:updated_time" content="2018-04-10T11:18:24.267Z">
+<meta property="og:image" content="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/e800b001-7779-495b-8459-d33a7440d7b8.jpg">
+<meta property="og:image" content="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/5ed71283-a070-4b21-85ae-f2cbfd6ba6e1.jpg">
+<meta property="og:image" content="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/63cd5b50-d6d8-4df6-8912-ef4a1dd5ba13.jpg">
+<meta property="og:image" content="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/1ee5f0a5-b8df-43b9-95ab-c516c54ec797.jpg">
+<meta property="og:updated_time" content="2018-04-10T11:21:35.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL面试知识">
 <meta name="twitter:image" content="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/c23957e9-a572-44f8-be15-f306c8b92722.jpg">
@@ -486,7 +486,7 @@
 <h3 id="4-索引列的顺序"><a href="#4-索引列的顺序" class="headerlink" title="4. 索引列的顺序"></a>4. 索引列的顺序</h3><p>让选择性最强的索引列放在前面，例如下面显示的结果中 customer_id 的选择性比 staff_id 更高，因此最好把 customer_id 列放在多列索引的前面。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(<span class="keyword">DISTINCT</span> staff_id)/<span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> staff_id_selectivity,</span><br><span class="line"><span class="keyword">COUNT</span>(<span class="keyword">DISTINCT</span> customer_id)/<span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> customer_id_selectivity,</span><br><span class="line"><span class="keyword">COUNT</span>(*)</span><br><span class="line"><span class="keyword">FROM</span> payment;</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   staff_id_selectivity: 0.0001</span><br><span class="line">customer_id_selectivity: 0.0373</span><br><span class="line">               COUNT(*): 16049</span><br></pre></td></tr></table></figure>
-<h3 id="5-聚簇索引"><a href="#5-聚簇索引" class="headerlink" title="5. 聚簇索引"></a>5. 聚簇索引</h3><p><div align="center"> <a href="../pics//e800b001-7779-495b-8459-d33a7440d7b8.jpg" class="gallery-item"><img src="../pics//e800b001-7779-495b-8459-d33a7440d7b8.jpg"></a> </div><br></p>
+<h3 id="5-聚簇索引"><a href="#5-聚簇索引" class="headerlink" title="5. 聚簇索引"></a>5. 聚簇索引</h3><p><div align="center"> <a href="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/e800b001-7779-495b-8459-d33a7440d7b8.jpg" class="gallery-item" target="_blank" rel="noopener"><img src="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/e800b001-7779-495b-8459-d33a7440d7b8.jpg"></a> </div><br></p>
 <p>聚簇索引并不是一种索引类型，而是一种数据存储方式。</p>
 <p>术语“聚簇”表示数据行和相邻的键值紧密地存储在一起，InnoDB 的聚簇索引的数据行存放在 B+Tree 的叶子页中。</p>
 <p>因为无法把数据行存放在两个不同的地方，所以一个表只能有一个聚簇索引。</p>
@@ -510,7 +510,7 @@
 <li>一些存储引擎（例如 MyISAM）在内存中只缓存索引，而数据依赖于操作系统来缓存。因此，只访问索引可以不使用系统调用（通常比较费时）。</li>
 <li>对于 InnoDB 引擎，若二级索引能够覆盖查询，则无需访问聚簇索引。</li>
 </ol>
-<h2 id="B-Tree-和-B-Tree-原理"><a href="#B-Tree-和-B-Tree-原理" class="headerlink" title="B-Tree 和 B+Tree 原理"></a>B-Tree 和 B+Tree 原理</h2><h3 id="1-B-Tree"><a href="#1-B-Tree" class="headerlink" title="1. B-Tree"></a>1. B-Tree</h3><p><div align="center"> <a href="../pics//5ed71283-a070-4b21-85ae-f2cbfd6ba6e1.jpg" class="gallery-item"><img src="../pics//5ed71283-a070-4b21-85ae-f2cbfd6ba6e1.jpg"></a> </div><br></p>
+<h2 id="B-Tree-和-B-Tree-原理"><a href="#B-Tree-和-B-Tree-原理" class="headerlink" title="B-Tree 和 B+Tree 原理"></a>B-Tree 和 B+Tree 原理</h2><h3 id="1-B-Tree"><a href="#1-B-Tree" class="headerlink" title="1. B-Tree"></a>1. B-Tree</h3><p><div align="center"> <a href="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/5ed71283-a070-4b21-85ae-f2cbfd6ba6e1.jpg" class="gallery-item" target="_blank" rel="noopener"><img src="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/5ed71283-a070-4b21-85ae-f2cbfd6ba6e1.jpg"></a> </div><br></p>
 <p>为了描述 B-Tree，首先定义一条数据记录为一个二元组 [key, data]，key 为记录的键，data 为数据记录除 key 外的数据。</p>
 <p>B-Tree 是满足下列条件的数据结构：</p>
 <ul>
@@ -520,13 +520,13 @@
 </ul>
 <p>在 B-Tree 中按 key 检索数据的算法非常直观：首先从根节点进行二分查找，如果找到则返回对应节点的 data，否则对相应区间的指针指向的节点递归进行查找，直到找到节点或找到 null 指针，前者查找成功，后者查找失败。</p>
 <p>由于插入删除新的数据记录会破坏 B-Tree 的性质，因此在插入删除时，需要对树进行一个分裂、合并、转移等操作以保持 B-Tree 性质。</p>
-<h3 id="2-B-Tree"><a href="#2-B-Tree" class="headerlink" title="2. B+Tree"></a>2. B+Tree</h3><p><div align="center"> <a href="../pics//63cd5b50-d6d8-4df6-8912-ef4a1dd5ba13.jpg" class="gallery-item"><img src="../pics//63cd5b50-d6d8-4df6-8912-ef4a1dd5ba13.jpg"></a> </div><br></p>
+<h3 id="2-B-Tree"><a href="#2-B-Tree" class="headerlink" title="2. B+Tree"></a>2. B+Tree</h3><p><div align="center"> <a href="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/63cd5b50-d6d8-4df6-8912-ef4a1dd5ba13.jpg" class="gallery-item" target="_blank" rel="noopener"><img src="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/63cd5b50-d6d8-4df6-8912-ef4a1dd5ba13.jpg"></a> </div><br></p>
 <p>与 B-Tree 相比，B+Tree 有以下不同点：</p>
 <ul>
 <li>每个节点的指针上限为 2d 而不是 2d+1；</li>
 <li>内节点不存储 data，只存储 key，叶子节点不存储指针。</li>
 </ul>
-<h3 id="3-带有顺序访问指针的-B-Tree"><a href="#3-带有顺序访问指针的-B-Tree" class="headerlink" title="3. 带有顺序访问指针的 B+Tree"></a>3. 带有顺序访问指针的 B+Tree</h3><p><div align="center"> <a href="../pics//1ee5f0a5-b8df-43b9-95ab-c516c54ec797.jpg" class="gallery-item"><img src="../pics//1ee5f0a5-b8df-43b9-95ab-c516c54ec797.jpg"></a> </div><br></p>
+<h3 id="3-带有顺序访问指针的-B-Tree"><a href="#3-带有顺序访问指针的-B-Tree" class="headerlink" title="3. 带有顺序访问指针的 B+Tree"></a>3. 带有顺序访问指针的 B+Tree</h3><p><div align="center"> <a href="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/1ee5f0a5-b8df-43b9-95ab-c516c54ec797.jpg" class="gallery-item" target="_blank" rel="noopener"><img src="https://github.com/CyC2018/Interview-Notebook/raw/master/pics/1ee5f0a5-b8df-43b9-95ab-c516c54ec797.jpg"></a> </div><br></p>
 <p>一般在数据库系统或文件系统中使用的 B+Tree 结构都在经典 B+Tree 基础上进行了优化，在叶子节点增加了顺序访问指针，做这个优化的目的是为了提高区间访问的性能。</p>
 <h3 id="4-为什么使用-B-Tree-和-B-Tree"><a href="#4-为什么使用-B-Tree-和-B-Tree" class="headerlink" title="4. 为什么使用 B-Tree 和 B+Tree"></a>4. 为什么使用 B-Tree 和 B+Tree</h3><p>红黑树等数据结构也可以用来实现索引，但是文件系统及数据库系统普遍采用 B-/+Tree 作为索引结构。</p>
 <p>页是计算机管理存储器的逻辑块，硬件及操作系统往往将主存和磁盘存储区分割为连续的大小相等的块，每个存储块称为一页（在许多操作系统中，页的大小通常为 4k），主存和磁盘以页为单位交换数据。</p>
